@@ -8,12 +8,6 @@ class NaverMaps extends Component {
         this.state = {};
     }
 
-    handleCenterChanged(center) {
-        // this.setState({ center })
-        const navermaps = window.naver.maps;
-        this.setState({ center: new navermaps.LatLng(37.3595704, 127.105399) }) ;
-    }
-
     render() {
         const { navermaps } = this.props;
 
@@ -26,8 +20,8 @@ class NaverMaps extends Component {
                     }}
                     defaultCenter={{lat: 37.385110, lng: 127.123067}}
                     defaultZoom={25}
-                    onClick={() => {
-                        alert("clicked!");
+                    onClick={(e) => {
+                        alert("clicked!" + e.lat);
                     }}
                 >
                     <Marker
