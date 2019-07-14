@@ -1,0 +1,29 @@
+import React, { Component } from 'react';
+import GoogleMaps from '../components/GoogleMaps';
+import LocationInfoContainer from '../containers/LocationInfoContainer';
+import * as actions from '../modules';
+import { connect } from 'react-redux';
+
+class App extends Component {
+    render() {
+        const {onShowLocation} = this.props;
+        return (
+            <div>
+                <GoogleMaps
+                    onShowLocation={onShowLocation}
+                />
+                <LocationInfoContainer/>
+            </div>
+        )
+    }
+}
+
+const mapToDispatch = (dispatch) => ({
+    onShowLocation : (location) => dispatch(actions.showLocation({
+            title : location.title,
+            latitude : location.latitude,
+            longitude : location.longitude
+    }))
+});
+
+export default connect(null, mapToDispatch)(App);
