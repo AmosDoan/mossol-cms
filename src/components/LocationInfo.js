@@ -10,8 +10,6 @@ class LocationInfo extends Component {
     handleChange = (e) => {
         const { value } = e.target;
         const { latitude, longitude } = this.props;
-        console.log("DEUBG[handleChange] " + value);
-        console.log("DEUBG[handleChange] " + JSON.stringify(this.props));
         this.props.onChangeLocation({
             "title" : value,
             "latitude" : latitude,

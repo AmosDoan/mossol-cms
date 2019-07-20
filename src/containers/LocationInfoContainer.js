@@ -1,18 +1,16 @@
 import LocationInfo from '../components/LocationInfo';
-import * as actions from '../modules';
+import * as actions from '../reducers/CurrentLocation';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
-    id : state.id,
-    title : state.title,
-    latitude : state.latitude,
-    longitude : state.longitude
+    id : state.currentLocation.id,
+    title : state.currentLocation.title,
+    latitude : state.currentLocation.latitude,
+    longitude : state.currentLocation.longitude
 });
 
 const mapDispatchToProps = (dispatch) => ({
     onChangeLocation : (location) => {
-        console.dir(JSON.stringify("::LOCATION " +
-            JSON.stringify(location)));
         dispatch(actions.changeLocation({
             id : location.id,
             title : location.title,
