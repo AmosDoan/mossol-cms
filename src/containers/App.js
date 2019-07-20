@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../components/Header';
 import GoogleMaps from '../components/GoogleMaps';
 import LocationInfoContainer from '../containers/LocationInfoContainer';
 import * as actions from '../modules';
@@ -6,9 +7,10 @@ import { connect } from 'react-redux';
 
 class App extends Component {
     render() {
-        const {onShowLocation} = this.props;
+        const { onShowLocation } = this.props;
         return (
             <div>
+                <Header/>
                 <GoogleMaps
                     onShowLocation={onShowLocation}
                 />
@@ -20,6 +22,7 @@ class App extends Component {
 
 const mapToDispatch = (dispatch) => ({
     onShowLocation : (location) => dispatch(actions.showLocation({
+            id : location.id,
             title : location.title,
             latitude : location.latitude,
             longitude : location.longitude

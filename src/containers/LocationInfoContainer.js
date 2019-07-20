@@ -3,14 +3,21 @@ import * as actions from '../modules';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
+    id : state.id,
     title : state.title,
     latitude : state.latitude,
     longitude : state.longitude
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onShowLocation : (location) => {
-        dispatch(actions.showLocation(location.payload.title, location.payload.latitude, location.payload.longitude))
+    onChangeLocation : (location) => {
+        console.dir(JSON.stringify("::LOCATION " +
+            JSON.stringify(location)));
+        dispatch(actions.changeLocation({
+            id : location.id,
+            title : location.title,
+            latitude : location.latitude,
+            longitude: location.longitude}))
     }
 });
 

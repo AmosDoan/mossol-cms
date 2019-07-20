@@ -1,1 +1,2 @@
 export const SHOW_LOCATION = 'SHOW_LOCATION';
+export const CHANGE_LOCATION = 'CHANGE_LOCATION';

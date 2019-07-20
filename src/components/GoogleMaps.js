@@ -51,22 +51,27 @@ class GoogleMaps extends Component {
                     defaultZoom={this.props.zoom}
                     onClick={e => {
                         this.props.onShowLocation({title : "noname", latitude : e.lat, longitude : e.lng});
-                        alert("This : " + e.lat);
+                        //alert("This : " + e.lat);
                     }}
                     onChildClick={index => {
-                        var location = this.state.locationData[index];
-                        this.props.onShowLocation(
-                            {title : location.title, latitude : location.latitude, longitude : location.longitude});
-                        alert("location : " + location.title)
+                        const location = this.state.locationData[index];
+                        this.props.onShowLocation({
+                            id : location.id,
+                            title : location.title,
+                            latitude : location.latitude,
+                            longitude : location.longitude});
+                        //alert("location : " + location.title)
                     }}
                 >
                     {
-                        this.state.locationData.map((location) => {
+                        this.state.locationData.map((location, i) => {
                             return(
                                 <AnyReactComponent
-                                    lat={location.latitude}
-                                    lng={location.longitude}
-                                    text={location.title}
+                                    key = {i}
+                                    id = {location.id}
+                                    lat = {location.latitude}
+                                    lng = {location.longitude}
+                                    text = {location.title}
                                 />);
                         })
                     }
