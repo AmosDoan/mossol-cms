@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 
 const initialState = {
-    id : 0,
+    id : "0",
     title : "Location을 선택해주세요",
     latitude : 0,
     longitude : 0
