@@ -68,9 +68,7 @@ class LocationInfo extends Component {
 
     render () {
         const { handleChange, handleSaveButton, handleDeleteButton, handleClose } = this;
-        const { title, latitude , longitude, visible } = this.props;
-
-        console.log("visible : " + visible);
+        const { id, title, latitude , longitude, visible } = this.props;
 
         if (!visible)
             return null;
@@ -82,7 +80,7 @@ class LocationInfo extends Component {
                     <InputSet title={title} latitude={latitude} longitude={longitude}
                               onChange={handleChange}/>
                     <SaveButton onClick={handleSaveButton}/>
-                    <RemoveButton onClick={handleDeleteButton}/>
+                    { id == 0 ? null : <RemoveButton onClick={handleDeleteButton}/> }
                 </Viewer>
             </div>
         );

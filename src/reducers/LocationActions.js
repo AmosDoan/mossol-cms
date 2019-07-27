@@ -3,7 +3,7 @@ import { List } from 'immutable';
 import { Map } from 'immutable';
 import handleActions from "redux-actions/es/handleActions";
 
-export const FETCH_LOCATION = 'locationList/FETCH_LOCATION';
+export const FETCH_LOCATION = 'location/FETCH_LOCATION';
 
 export const fetchLocation = createAction(FETCH_LOCATION);
 
