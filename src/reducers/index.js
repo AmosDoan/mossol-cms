@@ -1,8 +1,8 @@
 import { combineReducers} from "redux/es/redux";
-import currentLocation from "./CurrentLocation";
+import ui from "./UIActions";
 import locationList from "./LocationList";
 
 export default combineReducers({
-    currentLocation,
+    ui,
     locationList
 });

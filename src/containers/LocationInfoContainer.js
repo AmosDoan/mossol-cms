@@ -1,12 +1,13 @@
 import LocationInfo from '../components/LocationInfo';
-import * as actions from '../reducers/CurrentLocation';
+import * as actions from '../reducers/UIActions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
-    id : state.currentLocation.id,
-    title : state.currentLocation.title,
-    latitude : state.currentLocation.latitude,
-    longitude : state.currentLocation.longitude
+    id : state.ui.id,
+    title : state.ui.title,
+    latitude : state.ui.latitude,
+    longitude : state.ui.longitude,
+    visible : state.ui.visible
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -16,6 +17,9 @@ const mapDispatchToProps = (dispatch) => ({
             title : location.title,
             latitude : location.latitude,
             longitude: location.longitude}))
+    },
+    onCloseLocation : () => {
+        dispatch(actions.closeLocation())
     }
 });
 

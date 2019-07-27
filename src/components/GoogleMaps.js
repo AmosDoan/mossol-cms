@@ -44,14 +44,13 @@ class GoogleMaps extends Component {
 
     render() {
         return (
-            <div style={{ height: '80vh', width: '100%' }}>
+            <div style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyA7WY5IRmtw8o0jAwTzjyFUnABM9ckytqw" }}
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                     onClick={e => {
                         this.props.onShowLocation({title : "noname", latitude : e.lat, longitude : e.lng});
-                        //alert("This : " + e.lat);
                     }}
                     onChildClick={index => {
                         const location = this.state.locationData[index];
@@ -60,7 +59,6 @@ class GoogleMaps extends Component {
                             title : location.title,
                             latitude : location.latitude,
                             longitude : location.longitude});
-                        //alert("location : " + location.title)
                     }}
                 >
                     {
