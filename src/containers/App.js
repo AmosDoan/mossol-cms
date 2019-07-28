@@ -3,9 +3,16 @@ import Header from '../components/Header';
 import LocationInfoContainer from '../containers/LocationInfoContainer';
 import GoogleMapsContainer from '../containers/GoogleMapsContainer';
 import * as uiActions from '../reducers/UIActions';
+import * as locationActions from '../reducers/LocationActions';
 import { connect } from 'react-redux';
 
 class App extends Component {
+
+    componentDidMount() {
+        const { onFetchLocation } = this.props;
+        onFetchLocation();
+    }
+
     render() {
         const { onShowLocation } = this.props;
         return (
@@ -28,7 +35,9 @@ const mapToDispatch = (dispatch) => ({
                 latitude: location.latitude,
                 longitude: location.longitude,
                 visible : true
-            }))
+            })),
+    onFetchLocation: () =>
+        dispatch(locationActions.fetchLocation())
 });
 
 export default connect(null, mapToDispatch)(App);

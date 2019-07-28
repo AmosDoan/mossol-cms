@@ -2,6 +2,7 @@ import {createAction} from "redux-actions";
 import { List } from 'immutable';
 import { Map } from 'immutable';
 import handleActions from "redux-actions/es/handleActions";
+import LocationService from "../service/LocationService";
 
 export const FETCH_LOCATION = 'location/FETCH_LOCATION';
 
@@ -17,5 +18,18 @@ const initialState = List(
 );
 
 export default handleActions({
-
+    [FETCH_LOCATION] : (state) => {
+        return LocationService.fetchAllLocation().then(
+            response => {
+                console.log(response);
+                const locationData = response.data;
+                return {
+                    ...state,
+                    locationData
+                };
+            }
+        ).catch(e => {
+            console.log(e);
+        });
+    }
 }, initialState);
