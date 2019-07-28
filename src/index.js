@@ -4,14 +4,13 @@ import './index.css';
 import App from './containers/App';
 import './index.css'
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers';
 import { Provider } from 'react-redux';
+import penderMiddleware from 'redux-pender';
 
-//const store = createStore(reducers);
-const devTools =
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const store = createStore(reducers, devTools);
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, devTools(applyMiddleware(penderMiddleware())));
 
 console.log(store.getState());
 

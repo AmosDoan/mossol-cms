@@ -46,9 +46,11 @@ class LocationInfo extends Component {
         LocationService.updateLocation({
             "title" : title,
             "latitude" : latitude,
-            "longitude" : longitude}).then(data =>
-            alert("Update 되었습니다! 멍멍! " + JSON.stringify(data))
-        );
+            "longitude" : longitude}).then(data => {
+            alert("Update 되었습니다! 멍멍! " + JSON.stringify(data));
+            this.props.reloadLocation();
+            this.handleClose();
+        });
     };
 
     handleDeleteButton = () => {
@@ -57,9 +59,11 @@ class LocationInfo extends Component {
             "id" : id,
             "title" : title,
             "latitude" : latitude,
-            "longitude" : longitude}).then(() =>
-            alert("Remove 되었습니다! 멍멍! ")
-        );
+            "longitude" : longitude}).then(() => {
+            alert("Remove 되었습니다! 멍멍! ");
+            this.props.reloadLocation();
+            this.handleClose();
+        });
     };
 
     handleClose = () => {

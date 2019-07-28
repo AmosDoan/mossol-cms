@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
-import LocationService from '../service/LocationService';
 import PropTypes from 'prop-types';
 
 const AnyReactComponent = ({ text }) => <div style={{width : 100, background: "white"}}>{text}</div>;
@@ -15,25 +14,6 @@ class GoogleMaps extends Component {
         zoom: 18,
         onShowLocation : () => console.warn('onLocationClick not defined')
     };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            locationData : []
-        };
-    }
-
-    componentWillMount() {
-        LocationService.fetchAllLocation().then(
-            response => {
-                console.log(response);
-                const locationData = response.data;
-                this.setState({ locationData });
-            }
-        ).catch(e => {
-            console.log(e);
-        });
-    }
 
     locationClicked(location) {
         console.log("The marker that was clicked is", location);
@@ -53,7 +33,7 @@ class GoogleMaps extends Component {
                         this.props.onShowLocation({title : "noname", latitude : e.lat, longitude : e.lng});
                     }}
                     onChildClick={index => {
-                        const location = this.state.locationData[index];
+                        const location = this.props.locations[index];
                         this.props.onShowLocation({
                             id : location.id,
                             title : location.title,
@@ -62,7 +42,7 @@ class GoogleMaps extends Component {
                     }}
                 >
                     {
-                        this.state.locationData.map((location, i) => {
+                        this.props.locations.map((location, i) => {
                             return(
                                 <AnyReactComponent
                                     key = {i}
