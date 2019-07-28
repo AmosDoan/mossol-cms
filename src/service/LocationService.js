@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://mossol.net:8080';
 
 class LocationService {
     fetchAllLocation() {
