@@ -30,7 +30,7 @@ class GoogleMaps extends Component {
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                     onClick={e => {
-                        this.props.onShowLocation({title : "noname", latitude : e.lat, longitude : e.lng});
+                        this.props.onShowLocation({title : "noname", latitude : e.lat, longitude : e.lng, type : e.type});
                     }}
                     onChildClick={index => {
                         const location = this.props.locations[index];
@@ -38,7 +38,8 @@ class GoogleMaps extends Component {
                             id : location.id,
                             title : location.title,
                             latitude : location.latitude,
-                            longitude : location.longitude});
+                            longitude : location.longitude,
+                            type : location.type});
                     }}
                 >
                     {
@@ -50,6 +51,7 @@ class GoogleMaps extends Component {
                                     lat = {location.latitude}
                                     lng = {location.longitude}
                                     text = {location.title}
+                                    type = {location.type}
                                 />);
                         })
                     }
@@ -57,6 +59,7 @@ class GoogleMaps extends Component {
                         lat = {37.385110}
                         lng = {127.123067}
                         text = "LINE+"
+                        type = "KOREA_MENU"
                     />
                 </GoogleMapReact>
             </div>

@@ -11,7 +11,8 @@ class LocationService {
         let data = JSON.stringify({
             title :location.title,
             latitude : location.latitude,
-            longitude : location.longitude
+            longitude : location.longitude,
+            type : "KOREA_MENU"
         });
         return axios.post(`${API_URL}/location`, data)
             .then(response => {
@@ -24,7 +25,8 @@ class LocationService {
             id: location.id,
             title : location.title,
             latitude : location.latitude,
-            longitude : location.longitude
+            longitude : location.longitude,
+            type : "KOREA_MENU"
         });
 
         const url = `${API_URL}/location/` + location.id;

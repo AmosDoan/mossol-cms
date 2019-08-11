@@ -14,7 +14,8 @@ const initialState = {
             id : "-1",
             latitude : 37.385110,
             longitude : 127.123067,
-            title : "LINE+"
+            title : "LINE+",
+            type : "KOREA_MENU"
         }))};
 
 export default handleActions({

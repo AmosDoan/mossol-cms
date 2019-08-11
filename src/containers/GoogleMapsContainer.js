@@ -1,5 +1,4 @@
 import GoogleMaps from '../components/GoogleMaps';
-import * as actions from '../reducers/LocationActions';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => ({
