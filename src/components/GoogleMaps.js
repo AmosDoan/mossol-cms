@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 import PropTypes from 'prop-types';
+import { MdRestaurant } from 'react-icons/md';
 
-const AnyReactComponent = ({ text }) => <div style={{width : 100, background: "white"}}>{text}</div>;
+const LocationMarker = () => <div className="location-marker"><MdRestaurant size={30}/></div>;
+const LINEMarker = ({ text }) => <div style={{width : 100}}>{text}</div>;
 
 class GoogleMaps extends Component {
 
@@ -33,6 +35,9 @@ class GoogleMaps extends Component {
                         this.props.onShowLocation({title : "noname", latitude : e.lat, longitude : e.lng, type : e.type});
                     }}
                     onChildClick={index => {
+                        if (index >= this.props.locations.length) {
+                            return;
+                        }
                         const location = this.props.locations[index];
                         this.props.onShowLocation({
                             id : location.id,
@@ -45,7 +50,7 @@ class GoogleMaps extends Component {
                     {
                         this.props.locations.map((location, i) => {
                             return(
-                                <AnyReactComponent
+                                <LocationMarker
                                     key = {i}
                                     id = {location.id}
                                     lat = {location.latitude}
@@ -55,7 +60,7 @@ class GoogleMaps extends Component {
                                 />);
                         })
                     }
-                    <AnyReactComponent
+                    <LINEMarker
                         lat = {37.385110}
                         lng = {127.123067}
                         text = "LINE+"

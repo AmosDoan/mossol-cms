@@ -13,7 +13,7 @@ padding-top: 0.5rem;
 padding-bottom: 0.5rem;
 padding-left: 1rem;
 padding-right: 1rem;
-color: ${oc.indigo[7]};
+color: ${oc.orange[9]};
 border-radius: 4px;
 cursor: pointer;
 font-weight: 500;
