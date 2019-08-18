@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import InputSet from './InputSet';
-import SaveButton from './SaveButton';
-import LocationService from '../service/LocationService';
-import RemoveButton from "./RemoveButton";
+import InputSet from 'components/InputSet';
+import SaveButton from 'components/SaveButton';
+import LocationService from 'service/LocationService';
+import RemoveButton from "components/RemoveButton";
 import styled from "styled-components";
 import oc from 'open-color';
 

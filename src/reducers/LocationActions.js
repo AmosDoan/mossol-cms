@@ -1,7 +1,7 @@
 import { createAction, handleActions } from "redux-actions";
 import { List } from 'immutable';
 import { Map } from 'immutable';
-import LocationService from "../service/LocationService";
+import LocationService from "service/LocationService";
 import { pender } from 'redux-pender';
 
 export const FETCH_LOCATION = 'location/FETCH_LOCATION';

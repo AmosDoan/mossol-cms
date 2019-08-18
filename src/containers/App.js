@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import LocationInfoContainer from '../containers/LocationInfoContainer';
-import GoogleMapsContainer from '../containers/GoogleMapsContainer';
-import * as uiActions from '../reducers/UIActions';
-import * as locationActions from '../reducers/LocationActions';
+import Header from 'components/Header';
+import LocationInfoContainer from 'containers/LocationInfoContainer';
+import GoogleMapsContainer from 'containers/GoogleMapsContainer';
+import * as uiActions from 'reducers/UIActions';
+import * as locationActions from 'reducers/LocationActions';
 import { connect } from 'react-redux';
 
 class App extends Component {

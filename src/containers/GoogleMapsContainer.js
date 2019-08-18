@@ -1,4 +1,4 @@
-import GoogleMaps from '../components/GoogleMaps';
+import GoogleMaps from 'components/GoogleMaps';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => ({

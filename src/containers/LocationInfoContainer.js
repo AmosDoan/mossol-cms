@@ -1,6 +1,6 @@
-import LocationInfo from '../components/LocationInfo';
-import * as uiActions from '../reducers/UIActions';
-import * as locationActions from '../reducers/LocationActions';
+import LocationInfo from 'components/LocationInfo';
+import * as uiActions from 'reducers/UIActions';
+import * as locationActions from 'reducers/LocationActions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
