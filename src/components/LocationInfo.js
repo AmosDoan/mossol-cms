@@ -42,15 +42,26 @@ class LocationInfo extends Component {
     };
 
     handleSaveButton = () => {
-        const { title, latitude, longitude } = this.props;
-        LocationService.updateLocation({
-            "title" : title,
-            "latitude" : latitude,
-            "longitude" : longitude}).then(data => {
-            alert("Update 되었습니다! 멍멍! " + JSON.stringify(data));
-            this.props.reloadLocation();
-            this.handleClose();
-        });
+        const { id, title, latitude, longitude } = this.props;
+
+        if (id != 0) {
+            LocationService.updateLocation({
+                "id" : id,
+                "title" : title,
+                "latitude" : latitude,
+                "longitude" : longitude}).then(() => {
+                this.props.reloadLocation();
+                this.handleClose();
+            });
+        } else {
+            LocationService.addLocation({
+                "title" : title,
+                "latitude" : latitude,
+                "longitude" : longitude}).then(() => {
+                this.props.reloadLocation();
+                this.handleClose();
+            });
+        }
     };
 
     handleDeleteButton = () => {
@@ -60,7 +71,6 @@ class LocationInfo extends Component {
             "title" : title,
             "latitude" : latitude,
             "longitude" : longitude}).then(() => {
-            alert("Remove 되었습니다! 멍멍! ");
             this.props.reloadLocation();
             this.handleClose();
         });
